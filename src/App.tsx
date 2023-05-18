@@ -1,9 +1,23 @@
 import starIcon from './assets/images/icon-star.svg'
 import thankYouIllustration from './assets/images/illustration-thank-you.svg'
 
+import { useState } from 'react'
+
 function App() {
-  let isSubmitted = true
-  let rating = 4
+  const [isSubmitted, setIsSubmitted] = useState(false)
+  const [rating, setRating] = useState(0)
+
+  const handleRating = (value: number) => {
+    setRating(value)
+  }
+
+  const handleSubmit = () => {
+    if (rating !== 0) {
+      setIsSubmitted(true)
+    } else {
+      alert('Please select a rating.')
+    }
+  }
 
   return (
     <div className='min-h-screen bg-very_dark_blue grid place-items-center font-overpass'>
@@ -29,6 +43,7 @@ function App() {
                       ? 'bg-dark_blue text-medium_grey'
                       : 'bg-medium_grey text-white'
                   } rounded-full hover:bg-primary hover:text-white`}
+                  onClick={() => handleRating(item)}
                 >
                   {item}
                 </button>
@@ -39,6 +54,7 @@ function App() {
           <button
             type='button'
             className='mt-4 w-full text-center bg-primary hover:bg-white hover:text-primary rounded-full text-lg tracking-wider py-2'
+            onClick={handleSubmit}
           >
             SUBMIT
           </button>
