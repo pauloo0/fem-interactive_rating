@@ -3,30 +3,50 @@ import thankYouIllustration from './assets/images/illustration-thank-you.svg'
 
 function App() {
   let isSubmitted = false
+  let rating = 4
 
   return (
-    <div className='min-h-screen bg-very_dark_blue grid place-items-center box-border'>
+    <div className='min-h-screen bg-very_dark_blue grid place-items-center font-overpass'>
       {!isSubmitted ? (
-        <main className='flex flex-col justify-between items-start'>
-          <img src={starIcon} alt='Star Icon' />
-          <h1>How did we do?</h1>
-          <p>
+        <main className='w-[375px] bg-gradient-to-tl from-very_dark_blue to-dark_blue p-6 rounded-2xl flex flex-col justify-between items-start text-white'>
+          <img
+            src={starIcon}
+            alt='Star Icon'
+            className='p-4 bg-dark_blue rounded-full'
+          />
+          <h1 className='my-4 text-2xl font-bold'>How did we do?</h1>
+          <p className='mb-4 text-paragraph text-medium_grey'>
             Please let us know how we did with your support request. All
             feedback is appreciated to help us improve our offering
           </p>
-          <section id='ratings'>
-            <span>1</span>
-            <span>2</span>
-            <span>3</span>
-            <span>4</span>
-            <span>5</span>
-          </section>
-          <button type='button'>SUBMIT</button>
+          <div className='w-full mt-2 mb-4 flex justify-between items-center'>
+            {[1, 2, 3, 4, 5].map(
+              (item) => (
+                <button
+                  key={item}
+                  className={`w-12 h-12 ${
+                    rating !== item
+                      ? 'bg-dark_blue text-medium_grey'
+                      : 'bg-medium_grey text-white'
+                  } rounded-full hover:bg-primary hover:text-white`}
+                >
+                  {item}
+                </button>
+              ),
+              []
+            )}
+          </div>
+          <button
+            type='button'
+            className='mt-4 w-full text-center bg-primary hover:bg-white hover:text-primary rounded-full text-lg tracking-wider py-2'
+          >
+            SUBMIT
+          </button>
         </main>
       ) : (
-        <main className='flex flex-col justify-between items-center'>
+        <main className='w-[375px] bg-gradient-to-tl from-very_dark_blue to-dark_blue p-6 rounded-2xl flex flex-col justify-between items-center text-white'>
           <img src={thankYouIllustration} alt='Thank You Illustration' />
-          <p>You selected X out of 5</p>
+          <p>You selected {rating} out of 5</p>
           <h1>Thank you!</h1>
           <p>
             We appreciate you taking the time to give a rating. If you ever need

@@ -9,6 +9,7 @@ module.exports = {
         light_grey: 'hsl(217, 12%, 63%)',
         medium_grey: 'hsl(216, 12%, 54%)',
         dark_blue: 'hsl(213, 19%, 18%)',
+        darker_blue: 'hsl(212, 19%, 13%)',
         very_dark_blue: 'hsl(216, 12%, 8%)',
       },
       fontSize: {
