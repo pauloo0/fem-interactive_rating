@@ -2,13 +2,13 @@ import starIcon from './assets/images/icon-star.svg'
 import thankYouIllustration from './assets/images/illustration-thank-you.svg'
 
 function App() {
-  let isSubmitted = false
+  let isSubmitted = true
   let rating = 4
 
   return (
     <div className='min-h-screen bg-very_dark_blue grid place-items-center font-overpass'>
       {!isSubmitted ? (
-        <main className='w-[375px] bg-gradient-to-tl from-very_dark_blue to-dark_blue p-6 rounded-2xl flex flex-col justify-between items-start text-white'>
+        <main className='w-[375px] h-[375px] bg-gradient-to-tl from-very_dark_blue to-dark_blue p-6 rounded-2xl flex flex-col justify-center items-start text-white'>
           <img
             src={starIcon}
             alt='Star Icon'
@@ -44,11 +44,13 @@ function App() {
           </button>
         </main>
       ) : (
-        <main className='w-[375px] bg-gradient-to-tl from-very_dark_blue to-dark_blue p-6 rounded-2xl flex flex-col justify-between items-center text-white'>
+        <main className='w-[375px] h-[375px] bg-gradient-to-tl from-very_dark_blue to-dark_blue p-6 rounded-2xl flex flex-col justify-center items-center text-white'>
           <img src={thankYouIllustration} alt='Thank You Illustration' />
-          <p>You selected {rating} out of 5</p>
-          <h1>Thank you!</h1>
-          <p>
+          <p className='my-6 px-3 py-1 text-paragraph text-primary bg-dark_blue rounded-full'>
+            You selected {rating} out of 5
+          </p>
+          <h1 className='mb-4 text-2xl font-bold'>Thank you!</h1>
+          <p className='text-medium_grey text-center'>
             We appreciate you taking the time to give a rating. If you ever need
             more support. don't hesitate to get in touch!
           </p>
